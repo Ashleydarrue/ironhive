@@ -1,0 +1,29 @@
+* {
+  cursor: pointer;
+}
+
+body {
+  margin: 0 auto;
+  /* background-image: url("../image/hivebackground.jpg");
+  background-size: cover;
+  background-repeat: no-repeat; */
+  /* cursor: pointer; */
+}
+
+nav img {
+  width: 360px;
+}
+ 
+header img{
+  height: 100px;
+}
+
+.beehive {
+  display: flex;
+  justify-content: flex-end;
+ 
+}
+
+
+  
+

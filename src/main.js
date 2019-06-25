@@ -1,5 +1,4 @@
 let allTheBeetles = [];
-let flowerHeight =  0
 window.onload = function () {
   ctx = document.getElementById('canvas').getContext('2d');
 
@@ -28,6 +27,7 @@ window.onload = function () {
       
       ctx.drawImage(theImage, this.x, this.y, 45, 50);
     }
+
     moveAcrossForever() {
       setInterval(() => {
         this.x -= 4;
@@ -49,11 +49,8 @@ window.onload = function () {
             this.direction = randomNum
           }
         }
-
-
       }, 200)
-    }
-    
+    } 
   }
   
   function drawEverything() {
@@ -76,21 +73,21 @@ window.onload = function () {
     requestAnimationFrame(animate);  
   }
   animate();
-
-//   canvas.addEventListener("click", function (evt) {
-//     var mousePos = getMousePos(canvas, evt);
-//     console.log(mousePos.x + ',' + mousePos.y);
-// }, false);
-
-
-canvas.addEventListener("click", function (evt) {
-  var mousePos = getMousePos(canvas, evt);
-   if (mousePos.x && mousePos.y == beetleX && beetleY){
-      allTheBeetles.splice(beetle)
-   };
-}, false);
-
-
+ 
+ 
+  
+ /// make this a game class
+  canvas.addEventListener("click", function (evt) {
+    var mousePos = getMousePos(canvas, evt);
+    console.log(Math.floor(mousePos.x) + ',,,,,,,' + Math.floor(mousePos.y));
+    for(let i = 0; i < allTheBeetles.length; i++) {
+      // console.log("------- ", allTheBeetles[i].x, allTheBeetles[i].y, allTheBeetles[i].width, allTheBeetles[i].height);
+      if(Math.floor(mousePos.x) < allTheBeetles[i].x + (allTheBeetles[i].width) && Math.floor(mousePos.x) > allTheBeetles[i].x && Math.floor(mousePos.y) < allTheBeetles[i].y + (allTheBeetles[i].height - 7) && Math.floor(mousePos.y) > allTheBeetles[i].y) {
+        console.log("Hit Hit Hit Hit Hit Hit");
+        allTheBeetles.splice(i, 1)
+      }
+    }
+  }, false);
 
 //Get Mouse Position
  function getMousePos(canvas, evt) {
@@ -102,7 +99,11 @@ canvas.addEventListener("click", function (evt) {
  }
  
  
-    
+   class Sunflower  {
+     constructor (){
+
+     }
+   } 
 
 
 

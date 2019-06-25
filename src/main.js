@@ -73,39 +73,37 @@ window.onload = function () {
       beetles.moveAcrossForever();
     }
     drawEverything();
-    requestAnimationFrame(animate); 
-    // getBeetle(); 
+    requestAnimationFrame(animate);  
   }
   animate();
- 
 
-  canvas.addEventListener("click", function (evt) {
-    var mousePos = getMousePos(canvas, evt);
-    return destroyBeetle(mousePos.x, mousePos.y);
-  }, false);
-  
-  //Get Mouse Position
-  function getMousePos(canvas, evt) {
+//   canvas.addEventListener("click", function (evt) {
+//     var mousePos = getMousePos(canvas, evt);
+//     console.log(mousePos.x + ',' + mousePos.y);
+// }, false);
+
+
+canvas.addEventListener("click", function (evt) {
+  var mousePos = getMousePos(canvas, evt);
+   if (mousePos.x && mousePos.y == beetleX && beetleY){
+      allTheBeetles.splice(beetle)
+   };
+}, false);
+
+
+
+//Get Mouse Position
+ function getMousePos(canvas, evt) {
     var rect = canvas.getBoundingClientRect();
     return {
-      x: evt.clientX - rect.left,
-      y: evt.clientY - rect.top
+        x: evt.clientX - rect.left,
+        y: evt.clientY - rect.top
     };
-  }
-  function getBeetle(){
+ }
+ 
+ 
     
-    allTheBeetles.forEach(function(item){
-      console.log(item.x , item.y)
-      return item.x , item.y
-    });
-  }
 
-  function destroyBeetle(mouseX, mouseY){
-  
-   console.log(mouseX, mouseY);
-    getBeetle();
-    
-  }
 
 
 }

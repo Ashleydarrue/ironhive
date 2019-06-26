@@ -8,7 +8,7 @@ window.onload = function () {
       this.y = beetleY;
       this.width = beetleWidth;
       this.height = beetleHeight;
-      this.images = ['../image/stinkbug_1.png', '../image/stinkbug_2.png', '../image/stinkbug_3.png', '../image/stinkbug_4.png', '../image/stinkbug_5.png', '../image/stinkbug_4.png', '../image/stinkbug_3.png', '../image/stinkbug_2.png'];
+      this.images = ['./image/stinkbug_1.png', './image/stinkbug_2.png', './image/stinkbug_3.png', './image/stinkbug_4.png', './image/stinkbug_5.png', './image/stinkbug_4.png', './image/stinkbug_3.png', './image/stinkbug_2.png'];
       this.image = this.images[0];
       this.counter = -1;
       this.direction = 1;
@@ -141,7 +141,7 @@ window.onload = function () {
       this.y = sunflowerY;
       this.width = sunflowerWidth;
       this.height = sunflowerHeight;
-      this.image = '../image/sunflower.png'
+      this.image = './image/sunflower.png'
       this.counter = -1;
       this.ind = 0;
     }

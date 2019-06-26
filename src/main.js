@@ -12,39 +12,41 @@ window.onload = function () {
       this.image = this.images[0];
       this.counter = -1;
       this.direction = 1;
+      this.frames = 1;
     }
     squish() {
       this.image = "../image/bugsquished.png"
     }
     drawItself() {
       if (this.images.includes(this.image)) {
-
         this.counter++;
-
         this.image = this.images[this.counter];
-
         if (this.counter == 7) {
           this.counter = -1
         }
       }
       let theImage = new Image();
       theImage.src = this.image;
-
       ctx.drawImage(theImage, this.x, this.y, 45, 50);
     }
 
     moveAcrossForever() {
       let interval = 100
       setInterval(() => {
-        this.x -= 4;
 
+        if (this.frames % 70 == 0){
+          interval -= 10
+        }
+        this.x -= 4;
         if (this.direction == 2) {
           this.y -= 4
         }
         if (this.direction == 0) {
           this.y += 4
+          if(this.y > 650){
+            this.y = 645;
+          }
         }
-
         let randomNum = Math.floor(Math.random() * 12)
         if (randomNum == 0 || randomNum == 2) {
           if (this.direction == 2) {
@@ -55,21 +57,35 @@ window.onload = function () {
             this.direction = randomNum
           }
         }
+        
+        
+        this.frames ++
       }, interval)
     }
-
   }
+
+  setInterval(() => {
+    allTheBeetles.forEach((beetle)=>{
+      if(flower.x < (beetle.x + beetle.width) && flower.x+flower.width > beetle.x && flower.y < beetle.y+beetle.height && flower.y+flower.height > beetle.y){
+        $('.loose').css('display','inline');
+        setTimeout(()=>{
+          location.reload()
+        }, 5000)
+          
+
+      }  
+    }) 
+
+  }, 50)
+
 
 
   function drawEverything() {
-
     allTheBeetles.forEach((eachBeetle) => {
       eachBeetle.drawItself();
-
     })
     flower.drawFlower();
   }
-
 
   function animate() {
     ctx.clearRect(0, 0, 1430, 675);
@@ -84,32 +100,27 @@ window.onload = function () {
     requestAnimationFrame(animate);
   }
 
+
+
   window.onkeydown = function (e) {
     let key = e.keyCode ? e.keyCode : e.which;
-
     if (key === 13) {
       animate();
     }
-
   }
 
-  let hitNum = 0;
   /// make this a game class
+  let hitNum = 0;
   canvas.addEventListener("click", function (evt) {
     var mousePos = getMousePos(canvas, evt);
     console.log(Math.floor(mousePos.x) + ',,,,,,,' + Math.floor(mousePos.y));
     for (let i = 0; i < allTheBeetles.length; i++) {
       // console.log("------- ", allTheBeetles[i].x, allTheBeetles[i].y, allTheBeetles[i].width, allTheBeetles[i].height);
       if (Math.floor(mousePos.x) < allTheBeetles[i].x + (allTheBeetles[i].width) && Math.floor(mousePos.x) > allTheBeetles[i].x && Math.floor(mousePos.y) < allTheBeetles[i].y + (allTheBeetles[i].height - 7) && Math.floor(mousePos.y) > allTheBeetles[i].y) {
-
         allTheBeetles[i].squish()
-
         setTimeout(() => {
-
           allTheBeetles.splice(i, 1)
         }, 500);
-
-
         hitNum++
         document.getElementById('hit').innerHTML = hitNum
       }
@@ -137,20 +148,25 @@ window.onload = function () {
       this.counter = -1;
       this.ind = 0;
     }
-
+    
+    
     drawFlower() {
       this.counter++;
       if (this.counter % 50 === 0) {
         this.y -= 10;
         if (this.y == 5) {
-          alert("YOU WIN, you squished " + hitNum + " beetles!");
-          location.reload()
+          $('.win').css('display','inline');
+          setTimeout(()=>{
+            location.reload()
+          }, 5000)
         }
       }
       let theImage = new Image();
       theImage.src = this.image;
-      ctx.drawImage(theImage, 200, this.y, 200, 800);
+      ctx.drawImage(theImage, 200, this.y, 300, 800);
     }
   }
-  let flower = new Sunflower(200, 525, 50, 50);
+  
+  
+  let flower = new Sunflower(200, 525, 300, 800);
 }

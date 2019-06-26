@@ -4,22 +4,24 @@
 
 body {
   margin: 0 auto;
-  background-image: url("../image/hivebackground.jpg");
+  background-image: url("../image/beemoviebackground.jpg");
   background-size: cover;
   background-repeat: no-repeat; 
   /* /* cursor: pointer; */
 }
-
+nav {
+  background-color: lightsteelblue;
+}
 nav img {
   width: 360px;
 }
+
+
  
 header img{
   height: 80px;
   margin-right: 34px;
-  /* display: flex;
-  justify-content: flex-end;
-  align-items: flex-end; */
+ 
 }
 
 .beehive {
@@ -27,6 +29,7 @@ header img{
   justify-content: space-between;
   font-size: 30px;
   font-weight: bolder;
+  color: white;
 }
 
  #hit {
@@ -35,7 +38,7 @@ header img{
 
 #bee img {
   display: inline;
-  height: 40px;
+  height: 100px;
 }
   
 button {
@@ -44,4 +47,27 @@ button {
   color: white;
   font-size: 20px;
   background-color: #F9C904;
+}
+
+.win {
+  display: none;
+}
+
+.win > img {
+  width: 50vw;
+  height: 75vh;
+  margin-left: 30vw;
+  margin-bottom: 20vh;
+}
+
+.loose {
+  display: none;
+}
+
+.loose > img{
+  width: 50vw;
+  height: 75vh;
+  margin-left: 30vw;
+  margin-bottom: 20vh;
+
 }

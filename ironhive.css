@@ -4,7 +4,7 @@
 
 body {
   margin: 0 auto;
-  background-image: url("../image/beemoviebackground.jpg");
+  background-image: url("./image/beemoviebackground.jpg");
   background-size: cover;
   background-repeat: no-repeat;
 }

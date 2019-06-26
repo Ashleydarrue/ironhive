@@ -15,7 +15,7 @@ window.onload = function () {
       this.frames = 1;
     }
     squish() {
-      this.image = "../image/bugsquished.png"
+      this.image = "./image/bugsquished.png"
     }
     drawItself() {
       if (this.images.includes(this.image)) {
@@ -113,7 +113,7 @@ window.onload = function () {
     var mousePos = getMousePos(canvas, evt);
     console.log(Math.floor(mousePos.x) + ',,,,,,,' + Math.floor(mousePos.y));
     for (let i = 0; i < allTheBeetles.length; i++) {
-      // console.log("------- ", allTheBeetles[i].x, allTheBeetles[i].y, allTheBeetles[i].width, allTheBeetles[i].height);
+    
       if (Math.floor(mousePos.x) < allTheBeetles[i].x + (allTheBeetles[i].width) && Math.floor(mousePos.x) > allTheBeetles[i].x && Math.floor(mousePos.y) < allTheBeetles[i].y + (allTheBeetles[i].height - 7) && Math.floor(mousePos.y) > allTheBeetles[i].y) {
         allTheBeetles[i].squish()
         setTimeout(() => {

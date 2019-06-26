@@ -29,22 +29,24 @@ window.onload = function () {
       theImage.src = this.image;
       ctx.drawImage(theImage, this.x, this.y, 45, 50);
     }
-
     moveAcrossForever() {
       let interval = 100
       setInterval(() => {
 
-        if (this.frames % 70 == 0){
+        if (this.frames % 70 == 0) {
           interval -= 10
         }
         this.x -= 4;
         if (this.direction == 2) {
           this.y -= 4
+          if (this.y < 0) {
+            this.y = 10;
+          }
         }
         if (this.direction == 0) {
           this.y += 4
-          if(this.y > 650){
-            this.y = 645;
+          if (this.y > 640) {
+            this.y = 630;
           }
         }
         let randomNum = Math.floor(Math.random() * 12)
@@ -57,29 +59,25 @@ window.onload = function () {
             this.direction = randomNum
           }
         }
-        
-        
-        this.frames ++
+        this.frames++
       }, interval)
     }
   }
 
+  // Detects Collision & Displays looser Image
   setInterval(() => {
-    allTheBeetles.forEach((beetle)=>{
-      if(flower.x < (beetle.x + beetle.width) && flower.x+flower.width > beetle.x && flower.y < beetle.y+beetle.height && flower.y+flower.height > beetle.y){
-        $('.loose').css('display','inline');
-        setTimeout(()=>{
+    allTheBeetles.forEach((beetle) => {
+      if (flower.x < (beetle.x + beetle.width) && flower.x + flower.width > beetle.x && flower.y < beetle.y + beetle.height && flower.y + flower.height > beetle.y) {
+        $('.loose').css('display', 'inline');
+        setTimeout(() => {
           location.reload()
         }, 5000)
-          
-
-      }  
-    }) 
-
+      }
+    })
   }, 50)
 
 
-
+  // Draws Beettles & Sunflower on canvas
   function drawEverything() {
     allTheBeetles.forEach((eachBeetle) => {
       eachBeetle.drawItself();
@@ -87,6 +85,7 @@ window.onload = function () {
     flower.drawFlower();
   }
 
+  // Animates the Sunflower & Beetles.
   function animate() {
     ctx.clearRect(0, 0, 1430, 675);
     let randomNum = Math.floor(Math.random() * 50)
@@ -100,8 +99,7 @@ window.onload = function () {
     requestAnimationFrame(animate);
   }
 
-
-
+  // On Enter Starts Game
   window.onkeydown = function (e) {
     let key = e.keyCode ? e.keyCode : e.which;
     if (key === 13) {
@@ -109,7 +107,7 @@ window.onload = function () {
     }
   }
 
-  /// make this a game class
+  // Deletes bugs on click.
   let hitNum = 0;
   canvas.addEventListener("click", function (evt) {
     var mousePos = getMousePos(canvas, evt);
@@ -127,7 +125,7 @@ window.onload = function () {
     }
   }, false);
 
-  //Get Mouse Position
+  //Gets Mouse Position
   function getMousePos(canvas, evt) {
     var rect = canvas.getBoundingClientRect();
     return {
@@ -137,7 +135,6 @@ window.onload = function () {
   }
 
   // sunflower 
-
   class Sunflower {
     constructor(sunflowerX, sunflowerY, sunflowerWidth, sunflowerHeight) {
       this.x = sunflowerX;
@@ -148,17 +145,15 @@ window.onload = function () {
       this.counter = -1;
       this.ind = 0;
     }
-    
-    
     drawFlower() {
       this.counter++;
       if (this.counter % 50 === 0) {
         this.y -= 10;
         if (this.y == 5) {
-          $('.win').css('display','inline');
-          setTimeout(()=>{
+          $('.win').css('display', 'inline');
+          setTimeout(() => {
             location.reload()
-          }, 5000)
+          }, 3000)
         }
       }
       let theImage = new Image();
@@ -166,7 +161,5 @@ window.onload = function () {
       ctx.drawImage(theImage, 200, this.y, 300, 800);
     }
   }
-  
-  
   let flower = new Sunflower(200, 525, 300, 800);
-}
+};

@@ -6,22 +6,24 @@ body {
   margin: 0 auto;
   background-image: url("../image/beemoviebackground.jpg");
   background-size: cover;
-  background-repeat: no-repeat; 
+  background-repeat: no-repeat;
   /* /* cursor: pointer; */
 }
+
 nav {
   background-color: lightsteelblue;
 }
+
 nav img {
   width: 360px;
 }
 
 
- 
-header img{
+
+header img {
   height: 80px;
   margin-right: 34px;
- 
+
 }
 
 .beehive {
@@ -32,7 +34,7 @@ header img{
   color: white;
 }
 
- #hit {
+#hit {
   color: red;
 }
 
@@ -40,7 +42,7 @@ header img{
   display: inline;
   height: 100px;
 }
-  
+
 button {
   border-radius: 12px;
   border: 1px solid black;
@@ -53,7 +55,7 @@ button {
   display: none;
 }
 
-.win > img {
+.win>img {
   width: 50vw;
   height: 75vh;
   margin-left: 30vw;
@@ -64,10 +66,9 @@ button {
   display: none;
 }
 
-.loose > img{
+.loose>img {
   width: 50vw;
   height: 75vh;
   margin-left: 30vw;
   margin-bottom: 20vh;
-
 }

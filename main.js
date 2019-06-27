@@ -109,13 +109,14 @@ window.onload = function () {
   }
 
   // Deletes bugs on click.
+  var snd = new Audio("Squish.mp3"); // buffers automatically when created
   let hitNum = 0;
   canvas.addEventListener("click", function (evt) {
     var mousePos = getMousePos(canvas, evt);
-    console.log(Math.floor(mousePos.x) + ',,,,,,,' + Math.floor(mousePos.y));
+    // console.log(Math.floor(mousePos.x) + ',,,,,,,' + Math.floor(mousePos.y));
     for (let i = 0; i < allTheBeetles.length; i++) {
-    
       if (Math.floor(mousePos.x) < allTheBeetles[i].x + (allTheBeetles[i].width) && Math.floor(mousePos.x) > allTheBeetles[i].x && Math.floor(mousePos.y) < allTheBeetles[i].y + (allTheBeetles[i].height - 7) && Math.floor(mousePos.y) > allTheBeetles[i].y) {
+        snd.play();
         allTheBeetles[i].squish()
         setTimeout(() => {
           allTheBeetles.splice(i, 1)

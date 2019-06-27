@@ -66,7 +66,7 @@ window.onload = function () {
   }
 
   // Detects Collision & Displays looser Image
-  let lsnd = new Audio("Sarcastic.mp3");
+  let lsnd = new Audio("Sarcastic .mp3");
   setInterval(() => {
     allTheBeetles.forEach((beetle) => {
       if (flower.x < (beetle.x + beetle.width) && flower.x + flower.width > beetle.x && flower.y < beetle.y + beetle.height && flower.y + flower.height > beetle.y) {

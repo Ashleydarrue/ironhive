@@ -66,12 +66,14 @@ window.onload = function () {
   }
 
   // Detects Collision & Displays looser Image
+  let lsnd = new Audio("Sarcastic.mp3");
   setInterval(() => {
     allTheBeetles.forEach((beetle) => {
       if (flower.x < (beetle.x + beetle.width) && flower.x + flower.width > beetle.x && flower.y < beetle.y + beetle.height && flower.y + flower.height > beetle.y) {
+        lsnd.play();
         $('.loose').css('display', 'inline');
         setTimeout(() => {
-          location.reload()
+          location.reload();
         }, 5000)
       }
     })
@@ -109,7 +111,7 @@ window.onload = function () {
   }
 
   // Deletes bugs on click.
-  var snd = new Audio("Squish.mp3"); // buffers automatically when created
+  let snd = new Audio("Squish.mp3"); // buffers automatically when created
   let hitNum = 0;
   canvas.addEventListener("click", function (evt) {
     var mousePos = getMousePos(canvas, evt);
@@ -129,6 +131,7 @@ window.onload = function () {
   }, false);
 
   //Gets Mouse Position
+ 
   function getMousePos(canvas, evt) {
     var rect = canvas.getBoundingClientRect();
     return {
@@ -138,6 +141,7 @@ window.onload = function () {
   }
 
   // sunflower 
+  let wsnd = new Audio("whistle.mp3");
   class Sunflower {
     constructor(sunflowerX, sunflowerY, sunflowerWidth, sunflowerHeight) {
       this.x = sunflowerX;
@@ -153,6 +157,7 @@ window.onload = function () {
       if (this.counter % 50 === 0) {
         this.y -= 10;
         if (this.y == 5) {
+          wsnd.play();
           $('.win').css('display', 'inline');
           setTimeout(() => {
             location.reload()

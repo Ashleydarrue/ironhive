@@ -1,4 +1,5 @@
 let allTheBeetles = [];
+
 window.onload = function () {
   ctx = document.getElementById('canvas').getContext('2d');
 
@@ -121,6 +122,7 @@ window.onload = function () {
         }, 500);
         hitNum++
         document.getElementById('hit').innerHTML = hitNum
+      
       }
     }
   }, false);
@@ -153,7 +155,7 @@ window.onload = function () {
           $('.win').css('display', 'inline');
           setTimeout(() => {
             location.reload()
-          }, 3000)
+          }, 5000)
         }
       }
       let theImage = new Image();
@@ -162,4 +164,5 @@ window.onload = function () {
     }
   }
   let flower = new Sunflower(200, 525, 300, 800);
+
 };

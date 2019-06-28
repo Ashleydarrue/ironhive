@@ -66,11 +66,9 @@ window.onload = function () {
   }
 
   // Detects Collision & Displays looser Image
-  let lsnd = new Audio("Sarcastic .mp3");
   setInterval(() => {
     allTheBeetles.forEach((beetle) => {
       if (flower.x < (beetle.x + beetle.width) && flower.x + flower.width > beetle.x && flower.y < beetle.y + beetle.height && flower.y + flower.height > beetle.y) {
-        lsnd.play();
         $('.loose').css('display', 'inline');
         setTimeout(() => {
           location.reload();
@@ -141,7 +139,6 @@ window.onload = function () {
   }
 
   // sunflower 
-  let wsnd = new Audio("whistle.mp3");
   class Sunflower {
     constructor(sunflowerX, sunflowerY, sunflowerWidth, sunflowerHeight) {
       this.x = sunflowerX;
@@ -157,7 +154,6 @@ window.onload = function () {
       if (this.counter % 50 === 0) {
         this.y -= 10;
         if (this.y == 5) {
-          wsnd.play();
           $('.win').css('display', 'inline');
           setTimeout(() => {
             location.reload()

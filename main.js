@@ -76,8 +76,6 @@ window.onload = function () {
       }
     })
   }, 50)
-
-
   // Draws Beettles & Sunflower on canvas
   function drawEverything() {
     allTheBeetles.forEach((eachBeetle) => {
@@ -85,7 +83,6 @@ window.onload = function () {
     })
     flower.drawFlower();
   }
-
   // Animates the Sunflower & Beetles.
   function animate() {
     ctx.clearRect(0, 0, 1430, 675);
@@ -107,7 +104,6 @@ window.onload = function () {
       animate();
     }
   }
-
   // Deletes bugs on click.
   let snd = new Audio("Squish.mp3"); // buffers automatically when created
   let hitNum = 0;
@@ -127,9 +123,7 @@ window.onload = function () {
       }
     }
   }, false);
-
   //Gets Mouse Position
- 
   function getMousePos(canvas, evt) {
     var rect = canvas.getBoundingClientRect();
     return {
@@ -137,7 +131,6 @@ window.onload = function () {
       y: evt.clientY - rect.top
     };
   }
-
   // sunflower 
   class Sunflower {
     constructor(sunflowerX, sunflowerY, sunflowerWidth, sunflowerHeight) {
